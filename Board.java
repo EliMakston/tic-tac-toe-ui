@@ -36,11 +36,9 @@ public class Board {
         }
         Board[] possibleMoves = new Board[possibleMoveNumber];
         int boardIndex = 0;
-        System.out.println(possibleMoveNumber);
         for (int i = 0; i < this.currentPosition.length; i++) {
             for (int z = 0; z < this.currentPosition[i].length; z++) {
                 if (this.currentPosition[i][z].ID == -1) {
-                    System.out.printf("I: %d Z: %d\n", i, z);
                     Board boardCopy = this.copy();
                     boardCopy.currentPosition[i][z] = new Piece(playerID);
                     possibleMoves[boardIndex] = boardCopy;

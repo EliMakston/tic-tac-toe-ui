@@ -7,12 +7,10 @@ public class myMouseListener implements MouseListener{
     Board boardCopy;
     AI ai;
 
-    myMouseListener(Panel panel, Board boardState, RandomAI ai) {
+    myMouseListener(Panel panel, Board boardState, AI ai) {
         this.panel = panel;
         this.boardState = boardState;
-        System.out.println("This ran");
         this.boardCopy = boardState.copy();
-        System.out.println("It didn't break here");
         this.ai = ai;
     }
 
@@ -91,7 +89,6 @@ public class myMouseListener implements MouseListener{
         panel.setBoard(boardState);
         panel.repaint();
         // Check if a player won
-        
         if (boardState.didAnyoneWin() > -1) {
             boardState.printCurrentPosition();
             panel.gameOver(boardState.didAnyoneWin(), boardState.didAnyoneWin());
