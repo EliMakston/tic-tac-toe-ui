@@ -5,7 +5,7 @@ public class Game implements ActionListener {
     public static void main(String[] args) {
         Window frame = new Window("Tic Tac Toe");
         Board gameBoard = new Board();
-        AI random = new AI(gameBoard, 1);
+        RandomAI random = new RandomAI(gameBoard, 1);
         gameBoard.printCurrentPosition();
         myMouseListener mml = new myMouseListener(frame.panel, gameBoard, random);
         frame.panel.addMouseListener(mml);

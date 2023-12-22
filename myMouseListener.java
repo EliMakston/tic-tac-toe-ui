@@ -5,9 +5,9 @@ public class myMouseListener implements MouseListener{
     Panel panel;
     Board boardState;
     Board boardCopy;
-    AI ai;
+    RandomAI ai;
 
-    myMouseListener(Panel panel, Board boardState, AI ai) {
+    myMouseListener(Panel panel, Board boardState, RandomAI ai) {
         this.panel = panel;
         this.boardState = boardState;
         System.out.println("This ran");

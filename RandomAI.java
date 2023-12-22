@@ -1,9 +1,9 @@
 import java.util.Random;
 
-public class AI {
+public class RandomAI {
     Board currentBoard;
     int playerID;
-    AI(Board currentPosition, int ID) {
+    RandomAI(Board currentPosition, int ID) {
         this.currentBoard = currentPosition;
         playerID = ID;
     }
