@@ -66,19 +66,19 @@ public class Board {
     public int didAnyoneWin() {
         for (int i = 0; i < currentPosition.length; i++) {
             if (currentPosition[i][0].ID == currentPosition[i][1].ID && currentPosition[i][1].ID == currentPosition[i][2].ID && currentPosition[i][0].ID != -1) {
-                return 1;
+                return currentPosition[i][0].ID;
             }
         }
         for (int i = 0; i < currentPosition.length; i++) {
             if (currentPosition[0][i].ID == currentPosition[1][i].ID && currentPosition[1][i].ID == currentPosition[2][i].ID && currentPosition[0][i].ID != -1) {
-                return 1;
+                return currentPosition[0][i].ID;
             }
         }
         if (currentPosition[0][0].ID == currentPosition[1][1].ID && currentPosition[1][1].ID == currentPosition[2][2].ID && currentPosition[0][0].ID != -1) {
-            return 1;
+            return currentPosition[0][0].ID;
         }
         if (currentPosition[0][2].ID == currentPosition[1][1].ID && currentPosition[1][1].ID == currentPosition[2][0].ID && currentPosition[0][2].ID != -1) {
-            return 1;
+            return currentPosition[0][2].ID;
         }
         int negativeCount = 0;
         for (int i = 0; i < currentPosition.length; i++) {
@@ -91,6 +91,6 @@ public class Board {
         if (negativeCount == 0) {
             return 2;
         }
-        return 0;
+        return -1;
     }
 }

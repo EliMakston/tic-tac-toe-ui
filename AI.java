@@ -1,11 +1,21 @@
 import java.util.Random;
 
-public class RandomAI {
+public class AI {
     Board currentBoard;
     int playerID;
-    RandomAI(Board currentPosition, int ID) {
+    AI(Board currentPosition, int ID) {
         this.currentBoard = currentPosition;
         playerID = ID;
+    }
+
+    public Board makeMove() {
+        return this.currentBoard;
+    }
+}
+
+class RandomAI extends AI {
+    public RandomAI(Board currentPosition, int ID) {
+        super(currentPosition, ID);
     }
 
     public Board makeMove() {
