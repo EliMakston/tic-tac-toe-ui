@@ -90,7 +90,6 @@ public class myMouseListener implements MouseListener{
         panel.repaint();
         // Check if a player won
         if (boardState.didAnyoneWin() > -1) {
-            boardState.printCurrentPosition();
             panel.gameOver(boardState.didAnyoneWin(), boardState.didAnyoneWin());
             return;
         }
@@ -100,7 +99,6 @@ public class myMouseListener implements MouseListener{
         panel.repaint();
         // Check if a player won
         if (boardState.didAnyoneWin() > -1) {
-            boardState.printCurrentPosition();
             panel.gameOver(boardState.didAnyoneWin(), boardState.didAnyoneWin());
             return;
         }
