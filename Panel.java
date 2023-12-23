@@ -28,7 +28,7 @@ public class Panel extends JPanel {
                 }
             }
         }
-        if (playerWonID == 1) {
+        if (playerWonID == 2) {
             g2D.setFont(new Font("Courier", Font.BOLD,30));
             g2D.drawString("Player O won", 150, 480);
         }
@@ -36,7 +36,7 @@ public class Panel extends JPanel {
             g2D.setFont(new Font("Courier", Font.BOLD,30));
             g2D.drawString("Player X won", 150, 480);
         }
-        if (playerWonID == 2) {
+        if (playerWonID == 1) {
             g2D.setFont(new Font("Courier", Font.BOLD,30));
             g2D.drawString("The game tied", 125, 480);
         }

@@ -45,16 +45,12 @@ class MiniMaxAI extends AI {
         Board[] possibleMoves = currentBoard.getAllPossibleMoves(playerID);
         Board bestMove = new Board();
         int bestEval = (int) Double.NEGATIVE_INFINITY;
-        System.out.println(bestEval);
         for (int i = 0; i < possibleMoves.length; i++) {
             int currentEval = minimax(possibleMoves[i], 10, false);
-            System.out.println(currentEval);
             possibleMoves[i].printCurrentPosition();
             if (currentEval > bestEval) {
-                System.out.println("Evaluation changed");
                 bestEval = currentEval;
                 bestMove = possibleMoves[i];
-                bestMove.printCurrentPosition();
             }
             movesConsidered++;
         }
