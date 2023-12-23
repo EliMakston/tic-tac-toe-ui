@@ -45,12 +45,16 @@ class MiniMaxAI extends AI {
         Board[] possibleMoves = currentBoard.getAllPossibleMoves(playerID);
         Board bestMove = new Board();
         int bestEval = (int) Double.NEGATIVE_INFINITY;
+        System.out.println(bestEval);
         for (int i = 0; i < possibleMoves.length; i++) {
-            int currentEval = minimax(possibleMoves[i], possibleMoves.length, false);
+            int currentEval = minimax(possibleMoves[i], 10, false);
+            System.out.println(currentEval);
+            possibleMoves[i].printCurrentPosition();
             if (currentEval > bestEval) {
                 System.out.println("Evaluation changed");
                 bestEval = currentEval;
                 bestMove = possibleMoves[i];
+                bestMove.printCurrentPosition();
             }
             movesConsidered++;
         }
@@ -65,38 +69,38 @@ class MiniMaxAI extends AI {
         }
 
         if (maximizing) {
-            double maxEval = Double.NEGATIVE_INFINITY;
+            int maxEval = (int) Double.NEGATIVE_INFINITY;
             Board[] possibleMoves = currentMove.getAllPossibleMoves(1);
             for (int i = 0; i < possibleMoves.length; i++) {
                 int currentEval = minimax(possibleMoves[i], depth - 1, false);
-                maxEval = max((double) currentEval, maxEval);
+                maxEval = max(currentEval, maxEval);
                 movesConsidered++;
             }
-            return (int) maxEval;
+            return maxEval;
         }
 
         if (!maximizing) {
-            double minEval = Double.POSITIVE_INFINITY;
+            int minEval = (int) Double.POSITIVE_INFINITY;
             Board[] possibleMoves = currentMove.getAllPossibleMoves(0);
             for (int i = 0; i < possibleMoves.length; i++) {
                 int currentEval = minimax(possibleMoves[i], depth - 1, true);
-                minEval = min((double) currentEval, minEval);
+                minEval = min(currentEval, minEval);
                 movesConsidered++;
             }
-            return (int) minEval;
+            return minEval;
         }
         
         return -1;
     }
 
-    public double max(double num1, double num2) {
+    public int max(int num1, int num2) {
         if (num1 > num2) {
             return num1;
         }
         return num2;
     }
 
-    public double min(double num1, double num2) {
+    public int min(int num1, int num2) {
         if (num1 < num2) {
             return num1;
         }
@@ -133,33 +137,33 @@ class AlphaBetaAI extends MiniMaxAI {
         }
 
         if (maximizing) {
-            double maxEval = Double.NEGATIVE_INFINITY;
+            int maxEval = (int) Double.NEGATIVE_INFINITY;
             Board[] possibleMoves = currentMove.getAllPossibleMoves(1);
             for (int i = 0; i < possibleMoves.length; i++) {
                 int currentEval = alphabeta(possibleMoves[i], depth - 1, alpha, beta, false);
-                maxEval = max((double) currentEval, maxEval);
+                maxEval = max(currentEval, maxEval);
                 if (maxEval >  beta) {
                     break;
                 }
-                alpha = (int) max((double) alpha, maxEval);
+                alpha = max(alpha, maxEval);
                 movesConsidered++;
             }
-            return (int) maxEval;
+            return maxEval;
         }
 
         if (!maximizing) {
-            double minEval = Double.POSITIVE_INFINITY;
+            int minEval = (int) Double.POSITIVE_INFINITY;
             Board[] possibleMoves = currentMove.getAllPossibleMoves(0);
             for (int i = 0; i < possibleMoves.length; i++) {
                 int currentEval = alphabeta(possibleMoves[i], depth - 1, alpha, beta, true);
-                minEval = min((double) currentEval, minEval);
+                minEval = min(currentEval, minEval);
                 if (minEval < alpha) {
                     break;
                 }
-                beta = (int) min((double) beta, minEval);
+                beta = min(beta, minEval);
                 movesConsidered++;
             }
-            return (int) minEval;
+            return minEval;
         }
         
         return -1;
